@@ -13,6 +13,7 @@
 	<artifactId>ICIN-Bank</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>ICIN-Bank</name>
+	<packaging>war</packaging>
 	<description>ICIN Online Banking Application</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -69,6 +70,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<excludes>
+						<exclude>**/NegativeTests.java</exclude>
+						<exclude>**/PositiveTests.java</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
